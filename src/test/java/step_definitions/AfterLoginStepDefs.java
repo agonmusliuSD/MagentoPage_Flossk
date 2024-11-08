@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import pages.AfterLoginPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.WaitUtils;
 
 public class AfterLoginStepDefs {
 
@@ -16,19 +17,30 @@ public class AfterLoginStepDefs {
     private AfterLoginPage afterLoginPage = new AfterLoginPage();
 
 
-    @Given("User is logged in")
+    @Given("User is on the homepage of Magento")
     public void userIsLoggedIn() {
-        driver.get(ConfigurationReader.getProperty("magento.url") + "/customer/account/login/");
+        driver.get(ConfigurationReader.getProperty("magento.url"));
     }
 
-    @And("User enter username and password and clicks on sign in button")
+    @And("User is logging in")
+    public void userIsLoggingIn(){
+        afterLoginPage.signIn();
+    }
+
+    @And("User enter username and password")
     public void userEnterUsernameAndPasswordAndClicksOnSignInButton() {
         afterLoginPage.enterCredentials("agonmus@outlook.org", "Testtest123");
+
+    }
+
+    @And("User clicks the Sign in button")
+    public void userClicksTheSignInButton() {
         afterLoginPage.clickSignInButton();
     }
 
     @When("User adds an item to the wish list")
     public void userAddsAnItemToTheWishList() {
+       // WaitUtils.sleep(3);
         afterLoginPage.addItemToWishList();
     }
 

@@ -8,6 +8,9 @@ import utilities.WaitUtils;
 
 public class AfterLoginPage extends BasePage {
 
+    @FindBy(xpath = "(//a[contains(text(),'Sign In')])[1]")
+    public WebElement signInButton;
+
     @FindBy(id = "email")
     public WebElement emailField;
 
@@ -15,7 +18,7 @@ public class AfterLoginPage extends BasePage {
     public WebElement passwordField;
 
     @FindBy(xpath = "(//button[@id='send2'])[1]")
-    public WebElement signInButton;
+    public WebElement signInForm;
 
     @FindBy(xpath = "(//a[@title='Add to Wish List'])[4]")
     public WebElement addToWishListButton;
@@ -23,21 +26,22 @@ public class AfterLoginPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div")
     public WebElement confirmationMessage;
 
+    public void signIn() {
+        signInButton.click();
+    }
+
     public void enterCredentials(String email, String password) {
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
     }
 
     public void clickSignInButton() {
-        WaitUtils.waitUntilElmIsClickable(signInButton);
+        signInForm.click();
     }
 
     public void addItemToWishList() {
         WaitUtils.waitUntilElmIsClickable(addToWishListButton);
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addToWishListButton);
-        WaitUtils.waitUntilElmIsClickable(addToWishListButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", addToWishListButton);
     }
 
     public boolean isItemAddedToWishList() {

@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.BasePage;
 import utilities.Driver;
+import utilities.WaitUtils;
 
 public class SignUpPage extends BasePage {
 
@@ -45,7 +46,7 @@ public class SignUpPage extends BasePage {
     }
 
     public void submitForm(){
-        createButton.click();
+        WaitUtils.waitUntilElmIsClickable(createButton);
     }
 
     public boolean isConfirmationMessageDisplayed(){

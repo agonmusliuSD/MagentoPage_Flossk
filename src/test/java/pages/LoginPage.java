@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.BasePage;
+import utilities.WaitUtils;
 
 public class LoginPage extends BasePage {
 
@@ -12,7 +13,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "pass")
     public WebElement passwordField;
 
-    @FindBy(xpath = "(//button[@id='send2'])[1]")
+    @FindBy(xpath = "(//a[contains(text(),'Sign In')])[1]")
     public WebElement signInButton;
 
     public void enterLoginCredentials(String email, String password) {
@@ -21,7 +22,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickSignInButton() {
-        signInButton.click();
+        WaitUtils.waitUntilElmIsClickable(signInButton);
     }
 
 
