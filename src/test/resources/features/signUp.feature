@@ -1,4 +1,4 @@
-@sign_up
+@sign_up  @regression
 Feature: Sign up for a new account
 
   Scenario: User successfully signs up

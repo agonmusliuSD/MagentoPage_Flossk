@@ -1,4 +1,4 @@
-@after_login
+@after_login @regression
 Feature: Add an item to the wish list after logging in
 
   Scenario: User adds an item to the wish list after logging in

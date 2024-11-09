@@ -1,3 +1,4 @@
+@add_review @regression
 Feature: Add a review to an item
 
   Scenario: User adds a review to an item from the item page

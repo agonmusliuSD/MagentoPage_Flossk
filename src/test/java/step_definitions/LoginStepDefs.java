@@ -32,7 +32,7 @@ public class LoginStepDefs {
         loginPage.clickSignInButton();
     }
 
-    @Then("User should be logged in successfully and see the dashboard")
+    @Then("User should be logged in successfully")
     public void userSeesDashboard() {
         Driver.getDriver().getCurrentUrl();
 

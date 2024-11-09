@@ -20,7 +20,7 @@ public class AfterLoginPage extends BasePage {
     @FindBy(xpath = "(//button[@id='send2'])[1]")
     public WebElement signInForm;
 
-    @FindBy(xpath = "(//a[@title='Add to Wish List'])[4]")
+    @FindBy(xpath = "//li[5]//div[1]//div[1]//div[3]//div[1]//div[2]//a[1]")
     public WebElement addToWishListButton;
 
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div")
@@ -36,11 +36,15 @@ public class AfterLoginPage extends BasePage {
     }
 
     public void clickSignInButton() {
+        WaitUtils.waitUntilElmIsClickable(signInForm);
+        ((JavascriptExecutor) BasePage.driver).executeScript("arguments[0].scrollIntoView(true);", signInForm);
         signInForm.click();
     }
 
     public void addItemToWishList() {
         WaitUtils.waitUntilElmIsClickable(addToWishListButton);
+        ((JavascriptExecutor) BasePage.driver).executeScript("arguments[0].scrollIntoView(true);", addToWishListButton);
+        ((JavascriptExecutor) BasePage.driver).executeScript("arguments[0].click();", addToWishListButton);
 
     }
 

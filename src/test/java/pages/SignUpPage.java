@@ -1,11 +1,17 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.BasePage;
 import utilities.Driver;
 import utilities.WaitUtils;
+
+import java.time.Duration;
 
 public class SignUpPage extends BasePage {
 
@@ -34,6 +40,7 @@ public class SignUpPage extends BasePage {
     private WebElement confirmationMessage;
 
     public void clickCreateAccountButton() {
+        WaitUtils.waitUntilElmIsClickable(createAccountButton);
         createAccountButton.click();
     }
 
@@ -47,9 +54,14 @@ public class SignUpPage extends BasePage {
 
     public void submitForm(){
         WaitUtils.waitUntilElmIsClickable(createButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", createButton);
+        createButton.click();
+
     }
 
     public boolean isConfirmationMessageDisplayed(){
+        WaitUtils.sleep(2);
+        WaitUtils.waitUntilElmIsVisible(confirmationMessage);
         return confirmationMessage.isDisplayed();
     }
 

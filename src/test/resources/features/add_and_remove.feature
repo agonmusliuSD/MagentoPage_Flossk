@@ -1,4 +1,4 @@
-@add_remove
+@add_remove @regression
 Feature: Add and remove item from the cart
 
   Scenario: User adds an item to the cart and then removes it

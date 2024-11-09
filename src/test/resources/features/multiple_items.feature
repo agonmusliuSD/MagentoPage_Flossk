@@ -1,4 +1,4 @@
-@add_multiple_items
+@add_multiple_items  @regression
 Feature: Add multiple items to cart and place an order
 
   Scenario: User adds multiple items to the cart and completes the checkout

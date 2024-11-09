@@ -1,4 +1,4 @@
-@add_to_cart
+@add_to_cart  @regression
 Feature: Add item to the cart
 
   Scenario: User adds an item to the cart from the homepage

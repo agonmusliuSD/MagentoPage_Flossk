@@ -17,13 +17,16 @@ public class AddAndRemovePage extends BasePage {
     @FindBy(xpath = "//a[@class='action showcart']")
     private WebElement cartIcon;
 
-    @FindBy(xpath = "//a[@class='action viewcart']")
+    @FindBy(xpath = "//span[@data-bind=\"css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading\"]")
     private WebElement viewCartLink;
 
-    @FindBy(xpath = "(//a[@class='action action-delete'])[1]")
+    @FindBy(xpath = "//a[@title='Remove item']")
     private WebElement removeItemButton;
 
-    @FindBy(xpath = "//div[@class='cart-empty']")
+    @FindBy(xpath = "//span[normalize-space()='OK']")
+    private WebElement okButton;
+
+    @FindBy(xpath = "//*[@id=\"minicart-content-wrapper\"]/div[2]/strong")
     private WebElement cartEmptyMessage;
 
     public void addItemToCart() {
@@ -41,6 +44,7 @@ public class AddAndRemovePage extends BasePage {
     public void navigateToCart() {
         WaitUtils.waitUntilElmIsClickable(cartIcon);
         cartIcon.click();
+        WaitUtils.waitUntilElmIsVisible(viewCartLink);
         WaitUtils.waitUntilElmIsClickable(viewCartLink);
         viewCartLink.click();
     }
@@ -48,6 +52,8 @@ public class AddAndRemovePage extends BasePage {
     public void removeItemFromCart() {
         WaitUtils.waitUntilElmIsClickable(removeItemButton);
         removeItemButton.click();
+        WaitUtils.waitUntilElmIsVisible(okButton);
+        okButton.click();
     }
 
     public boolean isCartEmpty(){

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.BasePage;
+import utilities.WaitUtils;
 
 public class MultipleItemsPage extends BasePage {
 
@@ -30,7 +31,7 @@ public class MultipleItemsPage extends BasePage {
     @FindBy(xpath = "(//span[contains(text(),'Add to Cart')])[6]")
     private WebElement addMessengerBagToCart;
 
-    @FindBy(xpath = "//a[@class='action showcart']")
+    @FindBy(xpath = "//span[@data-bind=\"css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading\"]")
     private WebElement viewCartButton;
 
     @FindBy(xpath = "//button[@id='top-cart-btn-checkout']")
@@ -51,6 +52,8 @@ public class MultipleItemsPage extends BasePage {
 
     public void addHeroToCart() {
         sizeXL.click();
+        WaitUtils.waitUntilElmIsVisible(colorGreen);
+        colorGreen.click();
         colorGreen.click();
         addHeroHoodieToCart.click();
     }

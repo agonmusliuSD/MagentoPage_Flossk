@@ -22,7 +22,8 @@ public class AddToCartStepDefs {
 
     @When("User selects size {string} and color {string}")
     public void userSelectsSizeAndColor(String size, String color) {
-       addItemPage.selectSizeAndColor(size, color);
+        addItemPage.selectSizeAndColor(size, color);
+        addItemPage.addToCart();
     }
 
     @And("the user clicks \"Add to Cart\"")

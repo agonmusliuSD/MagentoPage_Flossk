@@ -1,4 +1,4 @@
-@reset_password
+@reset_password  @regression
 Feature: Reset Password
 
   Scenario: User resets their password
