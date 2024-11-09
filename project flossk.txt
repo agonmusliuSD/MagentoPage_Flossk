@@ -1,0 +1,13 @@
+1. Sign Up
+2. Login
+3. Add an Item to cart
+4. Add multiple items to cart and place an order
+5. Add a review on an item
+6. Verify that you're not able to add an item to wish list if you're not logged in
+7. Add an item on the wish list after logging in
+8. Reset password
+9. Add an item to cart and then remove it from cart
+
+
+
+https://magento.softwaretestingboard.com/
